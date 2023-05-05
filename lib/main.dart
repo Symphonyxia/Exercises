@@ -1,13 +1,15 @@
-import 'package:assignment_2/privacy_policy.dart';
-import 'package:assignment_2/send_feedback.dart';
-import 'package:assignment_2/settings.dart';
+
 import 'package:flutter/material.dart';
 
 import 'contacts.dart';
 import 'dashboard.dart';
 import 'events.dart';
+import 'send_feedback.dart';
+import 'settings.dart';
+import 'privacy_policy.dart';
 import 'my_drawer_header.dart';
 import 'notes.dart';
+import 'aboutpage.dart';
 import 'notifications.dart';
 
 void main() {
@@ -43,6 +45,8 @@ class _HomePageState extends State<HomePage> {
       container = EventsPage();
     } else if (currentPage == DrawerSections.notes) {
       container = NotesPage();
+    } else if (currentPage == DrawerSections.aboutpage) {
+      container = AboutPage();
     } else if (currentPage == DrawerSections.settings) {
       container = SettingsPage();
     } else if (currentPage == DrawerSections.notifications) {
@@ -89,15 +93,17 @@ class _HomePageState extends State<HomePage> {
               currentPage == DrawerSections.events ? true : false),
           menuItem(4, "Notes", Icons.notes,
               currentPage == DrawerSections.notes ? true : false),
-          Divider(),
-          menuItem(5, "Settings", Icons.settings_outlined,
+          Divider(), 
+          menuItem(5, "About", Icons.people_alt_outlined,
+              currentPage == DrawerSections.aboutpage ? true : false),
+          menuItem(6, "Settings", Icons.settings_outlined,
               currentPage == DrawerSections.settings ? true : false),
-          menuItem(6, "Notifications", Icons.notifications_outlined,
+          menuItem(7, "Notifications", Icons.notifications_outlined,
               currentPage == DrawerSections.notifications ? true : false),
           Divider(),
-          menuItem(7, "Privacy policy", Icons.privacy_tip_outlined,
+          menuItem(8, "Privacy policy", Icons.privacy_tip_outlined,
               currentPage == DrawerSections.privacy_policy ? true : false),
-          menuItem(8, "Send feedback", Icons.feedback_outlined,
+          menuItem(9, "Send feedback", Icons.feedback_outlined,
               currentPage == DrawerSections.send_feedback ? true : false),
         ],
       ),
@@ -118,14 +124,16 @@ class _HomePageState extends State<HomePage> {
             } else if (id == 3) {
               currentPage = DrawerSections.events;
             } else if (id == 4) {
-              currentPage = DrawerSections.notes;
+               currentPage = DrawerSections.notes;
             } else if (id == 5) {
-              currentPage = DrawerSections.settings;
+              currentPage = DrawerSections.aboutpage;
             } else if (id == 6) {
-              currentPage = DrawerSections.notifications;
+              currentPage = DrawerSections.settings;
             } else if (id == 7) {
-              currentPage = DrawerSections.privacy_policy;
+              currentPage = DrawerSections.notifications;
             } else if (id == 8) {
+              currentPage = DrawerSections.privacy_policy;
+            } else if (id == 9) {
               currentPage = DrawerSections.send_feedback;
             }
           });
@@ -164,6 +172,7 @@ enum DrawerSections {
   contacts,
   events,
   notes,
+  aboutpage,
   settings,
   notifications,
   privacy_policy,
