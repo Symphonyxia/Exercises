@@ -10,26 +10,9 @@ class HomeAppBar extends StatelessWidget {
       padding: EdgeInsets.all(25),
       child: Row(
         children: [
-        Icon(
-          Icons.sort,
-          size: 30,
-          color: Color.fromRGBO(1, 73, 12, 1),
-        ),
-      
-  
 
-        Padding(
-          padding: EdgeInsets.only(
-            left: 20,
-          ),
-          child: Text(
-            "Bamboo Shop",
-            style: TextStyle (fontSize: 23,
-            fontWeight: FontWeight.bold, 
-            color:  Color.fromRGBO(1, 73, 12, 1),
-            ),
-          ),
-          ),
+
+        
           Spacer(),
           // Badge(
           //   badgeColor: Colors.red,
